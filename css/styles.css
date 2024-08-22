@@ -36,6 +36,16 @@ html {
     animation: pulse 2s infinite;
 }
 
+#navbar {
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensures the navbar stays on top of other content */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for visual separation */
+    background-color: #ffffff; /* Ensures the navbar remains visible */
+}
+
+
 .navbar-brand {
     font-weight: bold;
 }
