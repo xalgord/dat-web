@@ -48,3 +48,24 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyCEf7wKdS4qMiG48jks2T2-y9RnFlWyKPtzW9TP8b1c4DV3hHS_flobXEJoxPK1Fgy/exec';
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body: new FormData(form)
+    })
+    .then(response => {
+        alert('Form submitted successfully!');
+        form.reset(); // Reset form after submission
+    })
+    .catch(error => {
+        alert('There was an error submitting the form');
+        console.error('Error!', error.message);
+    });
+});
