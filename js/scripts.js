@@ -62,12 +62,12 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        mode: 'cors' // Make sure CORS mode is set
+        mode: 'cors' // Ensure CORS mode is set
     })
     .then(response => {
         if (response.ok) {
             alert('Form submitted successfully!');
-            form.reset();
+            form.reset(); // Reset form after submission
         } else {
             throw new Error('Network response was not ok.');
         }
