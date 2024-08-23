@@ -58,11 +58,19 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 
     fetch(scriptURL, {
         method: 'POST',
-        body: new FormData(form)
+        body: new FormData(form),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        mode: 'cors' // Make sure CORS mode is set
     })
     .then(response => {
-        alert('Form submitted successfully!');
-        form.reset(); // Reset form after submission
+        if (response.ok) {
+            alert('Form submitted successfully!');
+            form.reset();
+        } else {
+            throw new Error('Network response was not ok.');
+        }
     })
     .catch(error => {
         alert('There was an error submitting the form');
